@@ -9,7 +9,7 @@ def index(request):
         }
     return render(request, 'hello/index.html', params)
 
-def nex(request):
+def next(request):
     params = {
         'title':'Hello/Next',
         'msg':'これは、もう1つのページです。',
