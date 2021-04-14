@@ -4,7 +4,7 @@ from .models import Friend
 from .forms import HelloForm
 
 def index(request):
-    data = Friend.objects.all()
+    data = Friend.objects.all().values('id', 'name')
     params = {
         'title': 'Hello',
         'data': data,
