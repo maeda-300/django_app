@@ -55,7 +55,7 @@ def find(request):
         msg = 'search result:'
         form = FindForm(request.POST)
         str = request.POST['find']
-        data = Friend.objects.filter(name__contains=str)
+        data = Friend.objects.filter(name__iexact=str)
     else:
         msg = 'search words...'
         form = FindForm()
