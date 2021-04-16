@@ -7,9 +7,10 @@ from .forms import FindForm
 from django.db.models import Q
 
 def index(request):
-    data = Friend.objects.all()
+    data = Friend.objects.all().order_by('age')
     params = {
         'title': 'Hello',
+        'message':'',
         'data': data,
         }
     return render(request, 'hello/index.html', params)
