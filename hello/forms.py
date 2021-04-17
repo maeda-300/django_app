@@ -17,6 +17,6 @@ class FindForm(forms.Form):
     find = forms.CharField(label='Find', required=False)
 
 class CheckForm(forms.Form):
-    required = forms.IntegerField(label='Required')
-    min = forms.IntegerField(label='Min', min_value=100)
-    max = forms.IntegerField(label='Max', max_value=1000)
+    data = forms.DateField(label='Date', input_formats=['%d'])
+    time = forms.TimeField(label='Time')
+    datetime = forms.DateField(label='DateTime')
