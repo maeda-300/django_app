@@ -1,5 +1,6 @@
 from django import forms
 from .models import Friend
+from django import forms
 
 class FriendForm(forms.ModelForm):
     class Meta:
@@ -17,6 +18,10 @@ class FindForm(forms.Form):
     find = forms.CharField(label='Find', required=False)
 
 class CheckForm(forms.Form):
-    data = forms.DateField(label='Date', input_formats=['%d'])
-    time = forms.TimeField(label='Time')
-    datetime = forms.DateField(label='DateTime')
+    str = forms.CharField(label='String')
+
+    def clean(self):
+        cleaned_data = super().clean()
+        str = cleaned_data['str']
+        if (str.lower().startswith('no')):
+            raise forms.ValidationError('You input "NO"!')
